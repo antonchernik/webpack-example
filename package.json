@@ -1,0 +1,26 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p --progress",
+    "dev": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}
