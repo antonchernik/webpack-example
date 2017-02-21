@@ -9,15 +9,28 @@
     "dev": "webpack-dev-server"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anton Chernik",
   "license": "MIT",
   "devDependencies": {
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "bootstrap": "^3.3.7",
+    "css-loader": "^0.26.1",
+    "exports-loader": "^0.6.3",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.10.0",
+    "imports-loader": "^0.7.0",
+    "jasny-bootstrap": "^3.1.3",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.3"
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "babel": {
     "presets": [
       "es2015"
