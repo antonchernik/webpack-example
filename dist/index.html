@@ -645,6 +645,43 @@
     </div>
 
 
+
+    <div class="page-header">
+        <h1>Row link</h1>
+    </div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr><th>Name</th><th>Description</th><th>Actions</th></tr>
+        </thead>
+        <tbody data-link="row" class="rowlink">
+        <tr><td><a href="#inputmask">Input mask</a></td><td>Input masks can be used to force the user to enter data conform a specific format.</td><td class="rowlink-skip"><a href="#">Action</a></td></tr>
+        <tr><td><a href="http://www.jasny.net/" target="_blank">jasny.net</a></td><td>Shared knowledge of Arnold Daniels aka Jasny.</td><td class="rowlink-skip"><a href="#">Action</a></td></tr>
+        <tr><td><a href="#rowlinkModal" data-toggle="modal">Launch modal</a></td><td>Toggle a modal via JavaScript by clicking this row.</td><td class="rowlink-skip"><a href="#">Action</a></td></tr>
+        </tbody>
+    </table>
+
+
+
+    <div class="page-header">
+        <h1>Input mask</h1>
+    </div>
+    <input type="text" class="form-control" data-mask="999-99-999-9999-9" placeholder="ISBN">
+
+
+    <div class="page-header">
+        <h1>Image upload widgets</h1>
+    </div>
+    <div class="fileinput fileinput-new" data-provides="fileinput">
+        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+            <img data-src="holder.js/100%x100%" alt="...">
+        </div>
+        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+        <div>
+            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+        </div>
+    </div>
+
 </div> <!-- /container -->
 
 
