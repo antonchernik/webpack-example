@@ -1,7 +1,11 @@
-
+'use strict';
+import jquery from 'jquery';
+import 'bootstrap/js/transition';
+import 'bootstrap/js/dropdown';
+import 'jasny-bootstrap/js/transition';
+import 'jasny-bootstrap/js/offcanvas';
 import 'html5shiv';
-import 'bootstrap/less/bootstrap.less';
-//require("imports-loader?$=jquery!");
-//import 'jasny-bootstrap/less/jasny-bootstrap.less!imports-loader?bootstrap/less/bootstrap.less';
+import '../main.less';
+
 
 console.log('Test message');
