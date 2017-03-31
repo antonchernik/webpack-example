@@ -50,13 +50,12 @@
 </div>
 
 
-
-
 <!-- Fixed navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu"
+                    data-canvas="body">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -69,7 +68,8 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Action</a></li>
                         <li><a href="#">Another action</a></li>
@@ -90,7 +90,98 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <h1>Theme example</h1>
-        <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
+        <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point
+            to create something more unique by building on or modifying it.</p>
+    </div>
+
+    <div>
+        <h1>File upload</h1>
+        <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+            <!-- Redirect browsers with JavaScript disabled to the origin page -->
+            <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
+            <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+            <div class="fileupload-buttonbar">
+                <div class="fileupload-buttons">
+                    <!-- The fileinput-button span is used to style the file input field as button -->
+                    <span class="fileinput-button">
+                <span>Add files...</span>
+                <input type="file" name="files[]" multiple>
+            </span>
+                    <button type="submit" class="start">Start upload</button>
+                    <button type="reset" class="cancel">Cancel upload</button>
+                    <button type="button" class="delete">Delete</button>
+                    <input type="checkbox" class="toggle">
+                    <!-- The global file processing state -->
+                    <span class="fileupload-process"></span>
+                </div>
+                <!-- The global progress state -->
+                <div class="fileupload-progress fade" style="display:none">
+                    <!-- The global progress bar -->
+                    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    <!-- The extended global progress state -->
+                    <div class="progress-extended">&nbsp;</div>
+                </div>
+            </div>
+            <!-- The table listing the files available for upload/download -->
+            <table role="presentation"><tbody class="files"></tbody></table>
+        </form>
+        <!-- The template to display files available for upload -->
+        <script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td>
+            <span class="preview"></span>
+        </td>
+        <td>
+            <p class="name">{%=file.name%}</p>
+            <strong class="error"></strong>
+        </td>
+        <td>
+            <p class="size">Processing...</p>
+            <div class="progress"></div>
+        </td>
+        <td>
+            {% if (!i && !o.options.autoUpload) { %}
+                <button class="start" disabled>Start</button>
+            {% } %}
+            {% if (!i) { %}
+                <button class="cancel">Cancel</button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+
+        </script>
+        <!-- The template to display files available for download -->
+        <script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        <td>
+            <span class="preview">
+                {% if (file.thumbnailUrl) { %}
+                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+                {% } %}
+            </span>
+        </td>
+        <td>
+            <p class="name">
+                <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+            </p>
+            {% if (file.error) { %}
+                <div><span class="error">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td>
+            <span class="size">{%=o.formatFileSize(file.size)%}</span>
+        </td>
+        <td>
+            <button class="delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>Delete</button>
+            <input type="checkbox" name="delete" value="1" class="toggle">
+        </td>
+    </tr>
+{% } %}
+
+        </script>
     </div>
 
 
@@ -279,7 +370,8 @@
     <div class="page-header">
         <h1>Thumbnails</h1>
     </div>
-    <img data-src="holder.js/200x200" class="img-thumbnail" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
+    <img data-src="holder.js/200x200" class="img-thumbnail"
+         alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
 
 
     <div class="page-header">
@@ -360,7 +452,8 @@
         <h1>Dropdown menus</h1>
     </div>
     <div class="dropdown theme-dropdown clearfix">
-        <a id="dropdownMenu1" href="#" class="sr-only dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+        <a id="dropdownMenu1" href="#" class="sr-only dropdown-toggle" data-toggle="dropdown" role="button"
+           aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <li class="active"><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
@@ -393,7 +486,8 @@
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -407,7 +501,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
@@ -426,7 +521,8 @@
     <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -440,7 +536,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
@@ -478,27 +575,36 @@
         <h1>Progress bars</h1>
     </div>
     <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><span class="sr-only">60% Complete</span></div>
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+             style="width: 60%;"><span class="sr-only">60% Complete</span></div>
     </div>
     <div class="progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"><span class="sr-only">40% Complete (success)</span></div>
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+             aria-valuemax="100" style="width: 40%"><span class="sr-only">40% Complete (success)</span></div>
     </div>
     <div class="progress">
-        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span class="sr-only">20% Complete</span></div>
+        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0"
+             aria-valuemax="100" style="width: 20%"><span class="sr-only">20% Complete</span></div>
     </div>
     <div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete (warning)</span></div>
+        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+             aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete (warning)</span></div>
     </div>
     <div class="progress">
-        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span class="sr-only">80% Complete (danger)</span></div>
+        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+             aria-valuemax="100" style="width: 80%"><span class="sr-only">80% Complete (danger)</span></div>
     </div>
     <div class="progress">
-        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete</span></div>
+        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+             aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete</span></div>
     </div>
     <div class="progress">
-        <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
-        <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
-        <div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only">10% Complete (danger)</span></div>
+        <div class="progress-bar progress-bar-success" style="width: 35%"><span
+                class="sr-only">35% Complete (success)</span></div>
+        <div class="progress-bar progress-bar-warning" style="width: 20%"><span
+                class="sr-only">20% Complete (warning)</span></div>
+        <div class="progress-bar progress-bar-danger" style="width: 10%"><span
+                class="sr-only">10% Complete (danger)</span></div>
     </div>
 
 
@@ -530,15 +636,18 @@
             <div class="list-group">
                 <a href="#" class="list-group-item active">
                     <h4 class="list-group-item-heading">List group item heading</h4>
-                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
+                        eget risus varius blandit.</p>
                 </a>
                 <a href="#" class="list-group-item">
                     <h4 class="list-group-item-heading">List group item heading</h4>
-                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
+                        eget risus varius blandit.</p>
                 </a>
                 <a href="#" class="list-group-item">
                     <h4 class="list-group-item-heading">List group item heading</h4>
-                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
+                        eget risus varius blandit.</p>
                 </a>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -610,7 +719,11 @@
         <h1>Wells</h1>
     </div>
     <div class="well">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet
+            non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non
+            commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla
+            sed consectetur.</p>
     </div>
 
 
@@ -645,21 +758,35 @@
     </div>
 
 
-
     <div class="page-header">
         <h1>Row link</h1>
     </div>
     <table class="table table-striped table-bordered table-hover">
         <thead>
-        <tr><th>Name</th><th>Description</th><th>Actions</th></tr>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody data-link="row" class="rowlink">
-        <tr><td><a href="#inputmask">Input mask</a></td><td>Input masks can be used to force the user to enter data conform a specific format.</td><td class="rowlink-skip"><a href="#">Action</a></td></tr>
-        <tr><td><a href="http://www.jasny.net/" target="_blank">jasny.net</a></td><td>Shared knowledge of Arnold Daniels aka Jasny.</td><td class="rowlink-skip"><a href="#">Action</a></td></tr>
-        <tr><td><a href="#rowlinkModal" data-toggle="modal">Launch modal</a></td><td>Toggle a modal via JavaScript by clicking this row.</td><td class="rowlink-skip"><a href="#">Action</a></td></tr>
+        <tr>
+            <td><a href="#inputmask">Input mask</a></td>
+            <td>Input masks can be used to force the user to enter data conform a specific format.</td>
+            <td class="rowlink-skip"><a href="#">Action</a></td>
+        </tr>
+        <tr>
+            <td><a href="http://www.jasny.net/" target="_blank">jasny.net</a></td>
+            <td>Shared knowledge of Arnold Daniels aka Jasny.</td>
+            <td class="rowlink-skip"><a href="#">Action</a></td>
+        </tr>
+        <tr>
+            <td><a href="#rowlinkModal" data-toggle="modal">Launch modal</a></td>
+            <td>Toggle a modal via JavaScript by clicking this row.</td>
+            <td class="rowlink-skip"><a href="#">Action</a></td>
+        </tr>
         </tbody>
     </table>
-
 
 
     <div class="page-header">
@@ -677,13 +804,13 @@
         </div>
         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
         <div>
-            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span
+                    class="fileinput-exists">Change</span><input type="file" name="..."></span>
             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
         </div>
     </div>
 
 </div> <!-- /container -->
-
 
 
 </body>

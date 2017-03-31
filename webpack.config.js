@@ -11,6 +11,15 @@ module.exports = {
             './src/index.js'
         ]
     },
+    resolve: {
+        alias: {
+            'load-image': 'blueimp-load-image/js/load-image.js',
+            'load-image-meta': 'blueimp-load-image/js/load-image-meta.js',
+            'load-image-scale': 'blueimp-load-image/js/load-image-scale.js',
+            'load-image-exif': 'blueimp-load-image/js/load-image-exif.js',
+            'canvas-to-blob': 'blueimp-file-upload/node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js'
+        }
+    },
     devtool: 'source-map',
     output: {
         path: __dirname + '/dist',
@@ -24,7 +33,7 @@ module.exports = {
         progress: true,
     },
     plugins: (function() {
-        var plugins = [];
+        let plugins = [];
 
         plugins.push(new webpack.HotModuleReplacementPlugin());
         plugins.push(new ExtractTextPlugin('app.bundle.css'));
